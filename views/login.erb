@@ -1,0 +1,25 @@
+<p>hello</p>
+
+<h1>ログイン画面</h1>
+<div class="container text-center">
+  <form method="POST" action="/login" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+    <%= csrf_tag %>
+    <h2>Sign In</h2>
+    <div class="form-group">
+      <label for="username" class="sr-only">Username</label>
+      <input type="text" name="user_id" value="<%= @user_id %>" class="form-control" id="username" placeholder="Username" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" name="password" value="<%= @password %>" class="form-control" id="password" placeholder="Password" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <p>Not registered? <a href="/welcome">Sign Up</a></p>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Sign In" class="btn btn-primary">
+    </div>
+
+  </form>
+</div>
+

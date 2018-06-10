@@ -1,0 +1,41 @@
+ <header>
+
+   <h1>Mar<span>i</span>ne L<span>i</span>fe</h1>
+   <a href="/create" class="post_btn">POST</a>
+
+ </header>
+<div class="container">
+  <div class="main">
+
+    <% @posts.each do |post| %>
+      <div class="box">
+        <img id="gallery" src="<%= post['filename'] %>" width="192px" height="160px">
+        <p class="title"><%= post['title'] %></p>
+        <!--"%Y.%m...."みたいに指定できる-->
+        <p class="time"><%= post['created_at'].strftime("%Y.%m.%d %H:%M") %></p>
+
+        <form action="/destroy/<%= post['id'] %>" method="post" style="display: inline; float: left" class="delete_btn">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" class="btn btn-primary btn-sm">delete<i class="far fa-trash-alt"
+                                                                        onClick="return confirm('削除します。\nよろしいですか？');"></i></button>
+        </form>
+
+      </div>
+
+
+    <% end %>
+
+  </div>
+
+  <!--floatしたものを戻す-->
+  <div class="clear"></div>
+</div>
+
+
+
+<footer>
+
+</footer>
+
+
+
