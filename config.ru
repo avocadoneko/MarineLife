@@ -1,7 +1,6 @@
-# config.ru (rackupで起動)
-require './app'
-# MarineLifeクラスを呼び出す
-run MarineLife
+#config.ru
+require "./app"
+run MarineLife::Application
 
 require 'bundler'
 Bundler.require
