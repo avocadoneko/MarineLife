@@ -13,7 +13,7 @@ $(document).ready(function () {
         find_img.remove();
      }
 
-    var img = '<img width="200" alt="" class="img_view"><a href="#" class="img_del">画像を削除する</a>';
+    var img = '<img width="200" alt="" class="img_view"><a href="#" class="img_del" color="#006B8C">削除</a>';
     view_box.append(img);
 
     fileRdr.onload = function() {
@@ -44,4 +44,45 @@ $(function(){
     $(".open").click(function(){
         $("#slideBox").slideToggle("slow");
     });
+});
+
+
+
+
+
+
+//■page topボタン
+
+$(function(){
+var topBtn=$('#pageTop');
+topBtn.hide();
+
+
+
+//◇ボタンの表示設定
+$(window).scroll(function(){
+  if($(this).scrollTop()>80){
+
+    //---- 画面を80pxスクロールしたら、ボタンを表示する
+    topBtn.fadeIn();
+
+  }else{
+
+    //---- 画面が80pxより上なら、ボタンを表示しない
+    topBtn.fadeOut();
+
+  }
+});
+
+
+
+// ◇ボタンをクリックしたら、スクロールして上に戻る
+topBtn.click(function(){
+  $('body,html').animate({
+  scrollTop: 0},500);
+  return false;
+
+});
+
+
 });

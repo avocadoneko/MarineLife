@@ -1,25 +1,31 @@
-<p>hello</p>
+<div class="sign">
+  <h1>Mar<span>i</span>ne L<span>i</span>fe</h1>
 
-<h1>ログイン画面</h1>
-<div class="container text-center">
-  <form method="POST" action="/login" class="fh5co-form animate-box" data-animate-effect="fadeIn">
-    <%= csrf_tag %>
-    <h2>Sign In</h2>
-    <div class="form-group">
-      <label for="username" class="sr-only">Username</label>
-      <input type="text" name="user_id" value="<%= @user_id %>" class="form-control" id="username" placeholder="Username" autocomplete="off">
-    </div>
-    <div class="form-group">
-      <label for="password" class="sr-only">Password</label>
-      <input type="password" name="password" value="<%= @password %>" class="form-control" id="password" placeholder="Password" autocomplete="off">
-    </div>
-    <div class="form-group">
-      <p>Not registered? <a href="/welcome">Sign Up</a></p>
-    </div>
-    <div class="form-group">
-      <input type="submit" value="Sign In" class="btn btn-primary">
-    </div>
 
-  </form>
+  <div class="form-wrapper">
+    <form method="post" action="/login" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+      <div class="form-item">
+        <label for="email"></label>
+        <input type="email" name="email" value="<%= @email %>" placeholder="Email Address"></input>
+      </div>
+      <div class="form-item">
+        <label for="password"></label>
+        <input type="password" name="password" value="<%= @password %>" placeholder="Password"></input>
+      </div>
+      <div class="button-panel">
+        <input type="submit" class="button" value="Sign In"></input>
+      </div>
+    </form>
+
+
+
+    <div class="form-footer">
+      <p><a href="/welcome">Create an account</a></p>
+    </div>
+  </div>
+
+
+
+
+
 </div>
-

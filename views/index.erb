@@ -1,26 +1,50 @@
- <header>
+<header>
 
-   <h1>Mar<span>i</span>ne L<span>i</span>fe</h1>
-   <a href="/create" class="post_btn">POST</a>
+  <h1>Mar<span>i</span>ne L<span>i</span>fe</h1>
 
- </header>
-<div class="container">
+  <!--ログインしているとき-->
+  <% if @user %>
+    <a href="/create" class="page_btn">POST</a>
+    <p class="header-comment">Hi, <span><%= @user['name'] %></span>. Enjoyed the beach yet? Show me!　→</p>
+  <!--ログインしていないとき-->
+  <% else %>
+    <a href="/login" class="page_btn">LOGIN</a>
+    <p class="header-comment">Are you diver?? Please <span>LOGIN!</span>　→</p>
+  <% end %>
+
+
+</header>
+<div class="container main-home">
   <div class="main">
+
 
     <% @posts.each do |post| %>
       <div class="box">
-        <img id="gallery" src="<%= post['filename'] %>" width="192px" height="160px">
-        <p class="title"><%= post['title'] %></p>
+        <div>
+          <img id="gallery" src="<%= post['filename'] %>" width="192px" height="160px">
+        </div>
+        <!--ポストごとにname表示-->
+        <p class="user_name"><span class="under"><span class="photo-by">photo by</span> <%= post['user_name'] %></span></p>
+        <div class="pin-solid icon"></div>
+        <p class="diving-point"><%= post['title'] %></p>
+
         <!--"%Y.%m...."みたいに指定できる-->
         <p class="time"><%= post['created_at'].strftime("%Y.%m.%d %H:%M") %></p>
 
-        <form action="/destroy/<%= post['id'] %>" method="post" style="display: inline; float: left" class="delete_btn">
-          <input type="hidden" name="_method" value="delete">
-          <button type="submit" class="btn btn-primary btn-sm">delete<i class="far fa-trash-alt"
-                                                                        onClick="return confirm('削除します。\nよろしいですか？');"></i></button>
-        </form>
+
+
+        <div class="mask">
+          <div class="caption"><%= post['description'] %></div>
+
+          <form action="/destroy/<%= post['id'] %>" method="post" style="display: inline; float: left" onSubmit="return check()">
+            <input type="submit" name="_method" value="delete">
+          </form>
+        </div>
+
+
 
       </div>
+
 
 
     <% end %>
@@ -34,6 +58,14 @@
 
 
 <footer>
+  <!--ログイン時のみ表示-->
+  <% if @user %>
+  <a href="/logout" class="page_btn logout_btn">Logout</a>
+  <% end %>
+
+<!--ページ上部に戻る-->
+  <p id="pageTop"><a href="#">↑ Back to Top ↑</a></p>
+
 
 </footer>
 

@@ -1,45 +1,53 @@
+<style>
+  input {
+    cursor: inherit;
+  }
+</style>
+
 <header>
 
   <h1>Mar<span>i</span>ne L<span>i</span>fe</h1>
+  <a href="/" class="page_btn">back to HOME</a>
+
 
 </header>
 
 
-<main class="main-wrapper" id="container" style="height: 500px">
-  <div class="wrapper">
-    <form action="/create" method="post" enctype="multipart/form-data">
-      <div class="">
-        <label>title</label>
-        <input type="text" class="form-control" name="title">
-      </div>
+<main class="container main-create" id="container">
+    <form class="form-post" action="/create" method="post" enctype="multipart/form-data">
+      <ul>
+        <li>
+          <label><span>どこで潜ったの？</span>
+          <input type="text" class="form-control" name="title" placeholder="例）真栄田岬　青の洞窟">
+          </label>
+        </li>
 
-      <div>
-       <label>caption</label>
-       <textarea class="form-control" name="description"></textarea>
-      </div>
+        <li>
+          <label><span>どんなダイビングだった？</span>
+          <textarea class="form-control" name="description"></textarea>
+          </label>
+        </li>
 
-      <div class="view_box">
-        <label>picture</label>
-        <input type="file" class="file" name="file">
-      </div>
+        <li class="view_box">
+          <label><span>写真を選んでね！</span>
+          <input type="file" class="file" name="file">
+          </label>
+        </li>
 
+      <!-- 見えないinputをつくって無理やりuser_nameを表示させるようにする -->
+        <input type="hidden" name="name" value="<%= @user['name'] %>">
 
-      <div>
-        <button type="submit" class="btn btn-success btn">POST</button>
-      </div>
-
+        <li>
+          <p>
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
+          </p>
+        </li>
+      </ul>
 
 
     </form>
-  </div>
 </main>
-
-
-<p class="open">ボタン</p>
-<div id="slideBox">
-  スライドパネルのサンプルです。ボタンを押すと閉じたり、開いたりします。 スライドパネルのサンプルです。ボタンを押すと閉じたり、開いたりします。スライドパネルのサンプルです。ボタンを押すと閉じたり、開いたりします。スライドパネルのサンプルです。ボタンを押すと閉じたり、開いたりします。
-</div>
-
 
 
 <footer>
