@@ -461,11 +461,13 @@ body {
   color: #666;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  height: 50px;
+  height: 48px;
   transition: border-color 0.3s;
   width: 100%;
-  padding-left: 8px;
+    padding: 8px;
 }
+
+
 
 .form-item input:focus {
   border-bottom: 2px solid #c0c0c0;
@@ -475,6 +477,7 @@ body {
 .button-panel {
   margin: 24px 0 0;
   width: 100%;
+    padding: 8px;
 }
 
 .button-panel .button {
